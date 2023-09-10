@@ -4,21 +4,22 @@ import React from 'react';
 
 import SearchSongsContainer from './containers/SearchSongsContainer';
 import SearchResultsContainer from './containers/SearchResultsContainer';
+import PlaylistContainer from './containers/PlaylistContainer';
+import SaveToSpotifyButtonContainer from './containers/SaveToSpotifyButtoinContainer';
 
 function App() {
   return (
-    <div id="background">  
-      <h1>Hello,Kris</h1>
-      <div>
+    <div id="main">  
+      <div id="input-search">
         <SearchSongsContainer/>{/*Search Bar and Search Button*/}  
       </div>
-      <div>
-        <SearchResultsContainer/>{/*SearchResults*/}
-      </div>
+      <SaveToSpotifyButtonContainer/>
+      <SearchResultsContainer/>{/*SearchResults*/}
+      <PlaylistContainer/>
       
-      {/*Playlist*/}
-      {/*Tracklist*/}
-      {/*Track*/}
+      
+      
+      
       {/*Save to Spotify*/}
     </div>
   );

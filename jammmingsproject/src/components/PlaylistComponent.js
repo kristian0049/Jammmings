@@ -1,16 +1,16 @@
 import React from 'react';
 
+
 function PlaylistComponent(props){
+    //On change add songs to the playlist
     return(
-        <ul>
-            {()=>{
-                if(props.playList.length > 0){
-                    return (()=>{
-                        props.playList.map((track)=><li>{track}</li>);
-                    })
-                }
-            }}
-        </ul>
+        <div>
+            <h1>Playlist</h1>
+            <ul>
+                <li>SomeTrack</li>
+            </ul>
+        </div>
+        
     );
 };
 
