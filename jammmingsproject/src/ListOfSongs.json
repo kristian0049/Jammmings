@@ -1,0 +1,23 @@
+{
+    "listOfSongs":[
+        {
+            "id":1,
+            "name":"I'm Dat Nigga",
+            "artist":"Future",
+            "duration":3.30
+        },
+        {
+            "id":2,
+            "name":"DNA",
+            "artist":"Kendrick Lamar",
+            "duration":3.05
+        },
+        {
+            "id":3,
+            "name":"Bubbly",
+            "artist":"Young Thug",
+            "duration":4.0
+        }
+    ]
+}
+
