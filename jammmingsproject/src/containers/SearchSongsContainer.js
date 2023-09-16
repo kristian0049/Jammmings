@@ -1,20 +1,23 @@
-import React , {useState} from 'react';
+import React,{useState}  from 'react';
 
 import SearchSongsComponent from '../components/SearchSongsComponent';
+import searchSongs from "../functions/searchSongs";
+import listOfSongs from "../ListOfSongs.json";
 
 function SearchSongsContainer(props){
-    const [input,setInput] = useState("");
     
+   
+
     function onSubmit(event){
-        props.onSubmit(event.target.value);
+        event.preventDefault();
+        props.setTrackList(searchSongs(props.input,listOfSongs));
+    
     }
 
-    function handleChange(event){
-        event.preventDefault();
-    }
+    
 
     return(
-        <SearchSongsComponent  onSubmit={onSubmit} />
+        <SearchSongsComponent  onSubmit={onSubmit} input={props.input} setInput={props.setInput} />
     )
 }
 

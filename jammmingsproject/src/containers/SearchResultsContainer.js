@@ -4,13 +4,13 @@ import SearchResultsComponent from '../components/SearchResultsComponent';
 
 import TracklistContainer from './TracklistContainer';
 
-function SearchResultsContainer(){
+function SearchResultsContainer(props){
 
     
 
     return(
         <SearchResultsComponent>
-           <TracklistContainer/>
+           <TracklistContainer trackList={props.trackList}/>
         </SearchResultsComponent>
     );
 }

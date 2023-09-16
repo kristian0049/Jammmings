@@ -2,11 +2,11 @@ import React from 'react';
 
 import TracklistComponent from '../components/TracklistComponent';
 
+ 
 
-
-function TracklistContainer(){
+function TracklistContainer(props){
     return(
-        <TracklistComponent/>
+        <TracklistComponent trackList={props.trackList}/>
     );
 };
 

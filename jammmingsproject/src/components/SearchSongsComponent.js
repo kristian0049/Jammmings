@@ -2,13 +2,12 @@ import React from 'react';
 
 function SearchSongsComponent(props){
     return(
-        
-        <form onSubmit={}>
-            <input type="text" placeholder="Input here..." onChange={props.onSubmit}/>
-            <button type="submit">Search</button>
+        <form method="get" onSubmit={props.onSubmit}>
+            <input type="text" placeholder="Input here..." value={props.input} onChange={(e)=>props.setInput(e.target.value)}  />
+            
         </form>
         
     )
-}
+};
 
 export default SearchSongsComponent;

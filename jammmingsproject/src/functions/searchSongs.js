@@ -1,5 +1,8 @@
 function searchSongs(input,spotifyAPIList){
 
+    //Issue with this code 
+    //If i input Kendrick , it does not find Kendrick Lamar 
+
     const trackList = [];
     const isConnected = new Promise ((resolve,reject) => {
         resolve(spotifyAPIList);
@@ -13,7 +16,6 @@ function searchSongs(input,spotifyAPIList){
         if(resolve.listOfSongs.length>0){
         
             for(let  i  = 0 ; i< resolvedValue.length;i++){
-                console.log(input);
                 if(resolvedValue[i].name === input){
                     trackList.push(resolvedValue[i]);
                 }
@@ -27,6 +29,7 @@ function searchSongs(input,spotifyAPIList){
         }
         
     }).catch((error)=> {throw new Error(error)});
+    
     return trackList;
 }
 
