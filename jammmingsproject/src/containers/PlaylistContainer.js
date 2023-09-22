@@ -2,10 +2,12 @@ import React from 'react';
 
 import PlaylistComponent from '../components/PlaylistComponent';
 
-function PlaylistContainer(track){
+function PlaylistContainer(props){
+
+    
 
     return(
-        <PlaylistComponent/>
+        <PlaylistComponent playList={props.playList} setPlayList={props.setPlayList}/>
     );
 };
 

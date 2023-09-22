@@ -6,7 +6,7 @@ import TracklistComponent from '../components/TracklistComponent';
 
 function TracklistContainer(props){
     return(
-        <TracklistComponent trackList={props.trackList}/>
+        <TracklistComponent trackList={props.trackList} playList={props.playList} setPlayList={props.setPlayList} />
     );
 };
 

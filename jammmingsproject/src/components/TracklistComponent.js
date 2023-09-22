@@ -10,13 +10,13 @@ function TracklistComponent(props){
         if(props.trackList.length>0){
             for(let i = 0;i < props.trackList.length;i++){
                 const song = props.trackList[i];
-                arr.push(<TrackContainer name={song.name} duration={song.duration} artist={song.artist}/>)
+                arr.push(<TrackContainer key={`TrackList_${song.name}`} name={song.name} duration={song.duration} artist={song.artist} playList={props.playList} setPlayList={props.setPlayList} listLocation={"trackList"}/>)
             }
         };
         return arr;
     }
     return(
-        <ul>
+        <ul id="list-results">
             {checkLength()}
         </ul>
     );

@@ -10,7 +10,7 @@ function SearchResultsContainer(props){
 
     return(
         <SearchResultsComponent>
-           <TracklistContainer trackList={props.trackList}/>
+           <TracklistContainer trackList={props.trackList} playList={props.playList} setPlayList={props.setPlayList}/>
         </SearchResultsComponent>
     );
 }

@@ -1,3 +1,13 @@
+function removeDuplicate(arr){
+    let unique = arr.reduce(function (acc,curr){
+        if(!acc.includes(curr))
+            acc.push(curr);
+        return acc;
+    },[]);
+    console.log(unique);
+    return unique;
+}
+
 function searchSongs(input,spotifyAPIList){
 
     //Issue with this code 
@@ -13,16 +23,15 @@ function searchSongs(input,spotifyAPIList){
     isConnected.then((resolve)=>{
         const resolvedValue = resolve.listOfSongs;
        
-        if(resolve.listOfSongs.length>0 ){
+        if(resolve.listOfSongs.length>0 && input.length>0){
         
             for(let  i  = 0 ; i< resolvedValue.length;i++){
                 
                 if(resolvedValue[i].name.toLowerCase().includes(inputLowerCase )){
                     
                     trackList.push(resolvedValue[i]);
-                    continue;
-                } 
-                if(resolvedValue[i].artist.toLowerCase().includes(inputLowerCase )){
+                   
+                } else if(resolvedValue[i].artist.toLowerCase().includes(inputLowerCase )){
                     trackList.push(resolvedValue[i]);
                     
                 }
@@ -33,10 +42,11 @@ function searchSongs(input,spotifyAPIList){
         
     }).catch((error)=> {throw new Error(error)});
 
-   
+  
+    // trackList = removeDuplicate(trackList);
     
     return trackList;
-}
+};
 
 
 export  {searchSongs as default};

@@ -14,7 +14,8 @@ import SaveToSpotifyButtonContainer from './containers/SaveToSpotifyButtoinConta
 
 
 function App() {
-  const [trackList,setTrackList]= useState([]);
+  const [trackList,setTrackList] = useState([]);
+  const [playList,setPlayList] = useState([]);
   const [input,setInput]=useState("");
 
  
@@ -24,15 +25,14 @@ function App() {
       <div id="input-search">
         <SearchSongsContainer setTrackList={setTrackList} input={input} setInput={setInput} />{/*Search Bar and Search Button*/}  
       </div>
+      <div id="searchResults">
+        <SearchResultsContainer trackList={trackList} playList={playList} setPlayList={setPlayList}/> 
+      </div>
+      <div id="playList">
+        <SaveToSpotifyButtonContainer/>
+        <PlaylistContainer playList={playList} setPlayList={setPlayList} />
+      </div>      
 
-       <SearchResultsContainer trackList={trackList}/> 
-      <SaveToSpotifyButtonContainer/>
-      <PlaylistContainer/>
-      
-      
-      
-      
-      {/*Save to Spotify*/}
     </div>
   );
 }
