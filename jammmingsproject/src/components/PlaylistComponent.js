@@ -13,16 +13,15 @@ function PlaylistComponent(props){
                <TrackContainer  name={song.name} duration={song.duration} artist={song.artist}/>
                <button onClick={()=>{props.setPlayList(props.playList.filter((track,trackIndex)=>trackIndex!==index));}}><>&minus;</></button>
             </li>)
-            
         }
         return arr;
     }
     return(
         <div id="added-songs">
-            <h1>Playlist</h1>
+            <h1>Playlist</h1>            
             <ul>
                 {addTracks()}
-            </ul>
+            </ul>           
         </div>
         
     );

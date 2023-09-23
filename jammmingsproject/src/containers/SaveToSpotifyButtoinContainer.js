@@ -2,9 +2,9 @@ import React from 'react';
 
 import SaveToSpotifyButtonComponent from '../components/SaveToSpotifyButtonComponent';
 
-function SaveToSpotifyButtonContainer(){
+function SaveToSpotifyButtonContainer(props){
     return(
-        <SaveToSpotifyButtonComponent/>
+        <SaveToSpotifyButtonComponent nameOfList={props.nameOfList} setNameOfList={props.setNameOfList} playList={props.playList}/>
     )
 };
 

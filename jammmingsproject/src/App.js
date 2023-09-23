@@ -17,6 +17,7 @@ function App() {
   const [trackList,setTrackList] = useState([]);
   const [playList,setPlayList] = useState([]);
   const [input,setInput]=useState("");
+  const [nameOfList,setNameOfList]=useState("");
 
  
 
@@ -29,8 +30,8 @@ function App() {
         <SearchResultsContainer trackList={trackList} playList={playList} setPlayList={setPlayList}/> 
       </div>
       <div id="playList">
-        <SaveToSpotifyButtonContainer/>
-        <PlaylistContainer playList={playList} setPlayList={setPlayList} />
+        <SaveToSpotifyButtonContainer   nameOfList={nameOfList} setNameOfList={setNameOfList} playList={playList}/>
+        <PlaylistContainer  playList={playList} setPlayList={setPlayList} />
       </div>      
 
     </div>
