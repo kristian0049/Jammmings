@@ -6,12 +6,12 @@ function TracklistComponent(props){
 
     
     const checkLength = ()=>{
-        const arr = [];
+        let arr = [];
         if(props.trackList.length>0){
-            for(let i = 0;i < props.trackList.length;i++){
-                const song = props.trackList[i];
-                arr.push(<TrackContainer key={`TrackList_${song.name}`} name={song.name} duration={song.duration} artist={song.artist} playList={props.playList} setPlayList={props.setPlayList} listLocation={"trackList"}/>)
-            }
+            arr = props.trackList.map((song)=><li key={`TrackList_${song.name}`}>
+                <TrackContainer  name={song.name} duration={song.duration} artist={song.artist}/>
+                <button onClick={()=>{props.setPlayList([...props.playList,{name:song.name,duration:song.duration,artist:song.artist}])}}><>&#43;</></button>
+            </li>)
         };
         return arr;
     }

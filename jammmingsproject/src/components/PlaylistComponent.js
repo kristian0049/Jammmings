@@ -5,11 +5,15 @@ import TrackContainer from '../containers/TrackContainer';
 function PlaylistComponent(props){
     //On change add songs to the playlist
     const addTracks= ()=>{
-        const arr =[];
+        let arr =[];
+       
         if(props.playList.length > 0){
-            for(let i = 0; i < props.playList.length;i++){
-                arr.push(props.playList[i]);
-            }
+           console.log(props.playList[0]);
+            arr = props.playList.map((song,index)=><li key={`Playlist_${song.name}`}>
+               <TrackContainer  name={song.name} duration={song.duration} artist={song.artist}/>
+               <button onClick={()=>{props.setPlayList(props.playList.filter((track,trackIndex)=>trackIndex!==index));}}><>&minus;</></button>
+            </li>)
+            
         }
         return arr;
     }
