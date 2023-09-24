@@ -1,49 +1,51 @@
 import requestAccessToken from '../functions/spotifyAPI';
-function searchSongs(input,spotifyAPIList){
+function millisToMinutesAndSeconds(millis){
+    let  minutes = Math.floor(millis/60000);
+    let seconds =((millis % 60000) / 1000).toFixed(0);
+    return seconds === 60 ? (minutes+1)+ ":00" : minutes + ":" + ( seconds < 10 ? "0" : "")+seconds;
+}
+function searchSongs(input){
 
     //Issue with this code 
     //If i input Kendrick , it does not find Kendrick Lamar 
-   
-    const inputLowerCase = input.toLowerCase();
-    let trackList = [];
+    const trackList = [];
 
-
+    const trackURL=`https://api.spotify.com/v1/search?q=${input}&type=track&market=GB&include_external=audio`;
     const isConnected = requestAccessToken();
 
-    isConnected.then((resolve)=>{
-        const accessToken = resolve.access_token;
+    async function getTracks(){
+        const accessToken = await isConnected;
         const trackParam={
             method:"GET",
-            header:{
-                'Authorization':`Bearer ${accessToken}`
+            headers:{
+               "Authorization" : `Bearer `+accessToken.access_token
+            }
+        };
+
+        const tracks = await fetch(trackURL,trackParam);
+        const tracksData = await tracks.json();
+        const tracksItems = tracksData.tracks.items;
+        
+       return tracksItems;
+
+    }
+
+    const tracksItems = getTracks();
+    for(let i =0; i<tracksItems.length;i++){
+        const song = tracksItems[i];
+        const songDuration = millisToMinutesAndSeconds(song.duration_ms);
+        let artists= '';
+        for( let y = 0;y<song.artists.length;y++){
+            if(y!== song.artists.length-1){
+                artists+= song.artists[y].name + ',';
+            }else{
+                artists+= song.artists[y].name;
             }
         }
-        console.log(accessToken);
-
-        // const resolvedValue = resolve.listOfSongs;
-       
-        // if(resolve.listOfSongs.length>0 && input.length>0){
-        
-        //     for(let  i  = 0 ; i< resolvedValue.length;i++){
-                
-        //         if(resolvedValue[i].name.toLowerCase().includes(inputLowerCase )){
-                    
-        //             trackList.push(resolvedValue[i]);
-                   
-        //         } else if(resolvedValue[i].artist.toLowerCase().includes(inputLowerCase )){
-        //             trackList.push(resolvedValue[i]);
-                    
-        //         }
-        //     }
-    
-            
-        // }
-        
-    }).catch((error)=> {throw new Error(error)});
-
-  
-    // trackList = removeDuplicate(trackList);
-    
+        trackList.push({name:song.name,duration:songDuration,artist:artists,id:song.id});
+    }
+   
+    console.log(trackList.length); 
     return trackList;
 };
 
