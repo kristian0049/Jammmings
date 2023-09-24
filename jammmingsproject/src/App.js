@@ -10,7 +10,9 @@ import SaveToSpotifyButtonContainer from './containers/SaveToSpotifyButtoinConta
 
 
 
-
+const listOfUri=["spotify:track:7IDJ19VgYwZSzDH5Ku5FT9",
+"spotify:track:6HZILIRieu8S0iqY8kIKhj",
+"spotify:track:4KDNRh9Oor80z3XIxdWlui"];
 
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
   const [playList,setPlayList] = useState([]);
   const [input,setInput]=useState("");
   const [nameOfList,setNameOfList]=useState("");
+  const [uriList,setUriList]=useState(listOfUri);
 
  
 
@@ -30,7 +33,7 @@ function App() {
         <SearchResultsContainer trackList={trackList} playList={playList} setPlayList={setPlayList}/> 
       </div>
       <div id="playList">
-        <SaveToSpotifyButtonContainer   nameOfList={nameOfList} setNameOfList={setNameOfList} playList={playList}/>
+        <SaveToSpotifyButtonContainer   nameOfList={nameOfList} setNameOfList={setNameOfList} playList={playList} uriList={uriList}/>
         <PlaylistContainer  playList={playList} setPlayList={setPlayList} />
       </div>      
 
