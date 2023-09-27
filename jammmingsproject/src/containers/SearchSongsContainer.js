@@ -1,4 +1,4 @@
-import React,{useState}  from 'react';
+import React from 'react';
 
 import SearchSongsComponent from '../components/SearchSongsComponent';
 import searchSongs from "../functions/searchSongs";
@@ -9,16 +9,10 @@ function SearchSongsContainer(props){
 
     function onSubmit(event){
         event.preventDefault();
-        const arr = searchSongs(props.input);
-        console.log(arr);
-        if(props.input.length>0){
-            props.setTrackList((prev)=>[...prev,arr]);
-        }   
-       
-
-    }
-
-    
+        searchSongs(props.input).then((response)=>{
+            props.setTrackList(response);
+        }); 
+    };
 
     return(
         <SearchSongsComponent  onSubmit={onSubmit} input={props.input} setInput={props.setInput} />

@@ -9,7 +9,7 @@ async function requestAccessToken(){
         },
         body:`grant_type=client_credentials&client_id=${clientId}&client_secret=${clientSecret}`
        
-    }).catch((error)=>{throw new Error(error)});
+    });
 
     return response.json();
 };
