@@ -8,9 +8,9 @@ function TracklistComponent(props){
     const checkLength = ()=>{
         let arr = [];
         if(props.trackList.length>0){
-            arr = props.trackList.map((song)=>{
+            arr = props.trackList.map((song,index)=>{
                
-            return (<li key={`TrackList_${song.name}`}>
+            return (<li key={`TrackList_${song.name}_${index}`}>
                 <TrackContainer  name={song.name} duration={song.duration} artist={song.artist}/>
                 <button onClick={()=>{props.setPlayList([...props.playList,{name:song.name,duration:song.duration,artist:song.artist}])}}><>&#43;</></button>
             </li>)})

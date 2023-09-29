@@ -30,6 +30,7 @@ function App() {
         <SearchSongsContainer setTrackList={setTrackList} input={input} setInput={setInput} />{/*Search Bar and Search Button*/}  
       </div>
       <div id="searchResults">
+        {console.log(trackList)}
         <SearchResultsContainer trackList={trackList} playList={playList} setPlayList={setPlayList}/> 
       </div>
       <div id="playList">

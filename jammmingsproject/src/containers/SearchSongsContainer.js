@@ -9,13 +9,19 @@ function SearchSongsContainer(props){
 
     function onSubmit(event){
         event.preventDefault();
-        searchSongs(props.input).then((response)=>{
-            props.setTrackList(response);
-        }); 
-    };
+        // if(props.input.length===0){
+        //     props.setTrackList([]);
+        // }else{
+        //     searchSongs(props.input).then((response)=>{
+        //     props.setTrackList(response);
+        // }); 
+    
+        // }
+
+   };
 
     return(
-        <SearchSongsComponent  onSubmit={onSubmit} input={props.input} setInput={props.setInput} />
+        <SearchSongsComponent  onSubmit={onSubmit} input={props.input} setInput={props.setInput} setTrackList={props.setTrackList}/>
     )
 }
 

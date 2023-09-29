@@ -4,13 +4,15 @@ function millisToMinutesAndSeconds(millis){
     let seconds =((millis % 60000) / 1000).toFixed(0);
     return seconds === 60 ? (minutes+1)+ ":00" : minutes + ":" + ( seconds < 10 ? "0" : "")+seconds;
 }
+
+
 async function searchSongs(input){
 
     //Issue with this code 
     //If i input Kendrick , it does not find Kendrick Lamar 
     const trackList = [];
 
-    const trackURL=`https://api.spotify.com/v1/search?q=${input}&type=track&market=GB&include_external=audio`;
+    const trackURL=`https://api.spotify.com/v1/search?q=${input}&type=track%2Cartist&market=GB&limit=10&include_external=audio`;
     const isConnected = requestAccessToken();
     const accessToken = await isConnected;
     const trackParam = {
@@ -37,13 +39,11 @@ async function searchSongs(input){
                 artists+= song.artists[y].name;
             }
         }
+        
         trackList.push({name:song.name,duration:songDuration,artist:artists,id:song.id});
     }
-        
-    
-    
-   return trackList;
    
+   return trackList;
 };
 
 
