@@ -1,20 +1,17 @@
 import React from 'react';
-
+import submitPlaylist from '../functions/submitPlaylist';
 function SaveToSpotifyButtonComponent(props){
 
-    // return(
-    //     <form action={`https://api.spotify.com/v1/users/{user}/playlists`} method="post" onSubmit={()=>{
-    //         let sentence='';
-    //         props.playList.forEach((word)=>sentence+=word.name+'\n');
-    //         alert(sentence);
-           
-    //     }}>
-    //         <label for="playlistName">Playlist Name: </label>
-    //         <input type="text" id="playlistName" placeholder="Set Playlist name here" value={props.nameOfList} onChange={(e)=>{props.setNameOfList(e.target.value)}} minlength="1" maxlength="10"/>
-    //         <button type="submit">Save Playlist</button>
-    //     </form>
-        
-    // )
+     return(
+         <form onSubmit={e=>{
+            e.preventDefault();
+            submitPlaylist(props.playList,props.nameOfList)}}>
+             <label htmlFor="playlistname">playlist name: </label>
+             <input type="text" id="playlistname" placeholder="set playlist name here" value={props.nameOfList} onChange={(e)=>{props.setNameOfList(e.target.value)}} minLength="1" maxLength="10"/>
+             <button type="submit">save playlist</button>
+         </form>
+      
+     )
 };
 
 export default SaveToSpotifyButtonComponent;
