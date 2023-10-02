@@ -4,7 +4,7 @@ import SaveToSpotifyButtonComponent from '../components/SaveToSpotifyButtonCompo
 
 function SaveToSpotifyButtonContainer(props){
     return(
-        <SaveToSpotifyButtonComponent nameOfList={props.nameOfList} setNameOfList={props.setNameOfList} playList={props.playList}/>
+        <SaveToSpotifyButtonComponent nameOfList={props.nameOfList} setNameOfList={props.setNameOfList} playList={props.playList} accessToken={props.accessToken} />
     )
 };
 
