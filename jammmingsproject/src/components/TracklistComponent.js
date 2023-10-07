@@ -1,10 +1,6 @@
 import React from 'react';
-
 import TrackContainer from '../containers/TrackContainer';
-
 function TracklistComponent(props){
-
-    
     const checkLength = ()=>{
         let arr = [];
         if(props.trackList.length>0){
@@ -12,7 +8,7 @@ function TracklistComponent(props){
                
             return (<li key={`TrackList_${song.name}_${index}`}>
                 <TrackContainer  name={song.name} duration={song.duration} artist={song.artist}/>
-                <button onClick={()=>{props.setPlayList([...props.playList,{name:song.name,duration:song.duration,artist:song.artist}])}}><>&#43;</></button>
+                <button onClick={()=>{props.setPlayList([...props.playList,{name:song.name,duration:song.duration,artist:song.artist,id:song.id}])}}><>&#43;</></button>
             </li>)})
         };
         return arr;
@@ -23,5 +19,4 @@ function TracklistComponent(props){
         </ul>
     );
 };
-
 export default TracklistComponent;

@@ -1,11 +1,8 @@
 import React from 'react';
-
 import SaveToSpotifyButtonComponent from '../components/SaveToSpotifyButtonComponent';
-
 function SaveToSpotifyButtonContainer(props){
     return(
-        <SaveToSpotifyButtonComponent nameOfList={props.nameOfList} setNameOfList={props.setNameOfList} playList={props.playList} accessToken={props.accessToken} />
+        <SaveToSpotifyButtonComponent nameOfList={props.nameOfList} setNameOfList={props.setNameOfList} playList={props.playList} accessToken={props.accessToken} userId={props.userId} />
     )
 };
-
 export default SaveToSpotifyButtonContainer;

@@ -1,6 +1,4 @@
-
 import React from 'react';
-
 function TrackComponent(props){
     return(
         <div >
@@ -10,5 +8,4 @@ function TrackComponent(props){
         </div>
     );
 };
-
 export default TrackComponent;

@@ -8,7 +8,7 @@ function SearchSongsComponent(props){
                 if(e.target.value.length===0){
                     props.setTrackList([]);
                 }else{
-                    searchSongs(e.target.value).then((response)=>{
+                    searchSongs(e.target.value,props.accessToken).then((response)=>{
                     props.setTrackList(response);
                 }); 
                 }

@@ -1,7 +1,5 @@
 import React from 'react';
-
 import TrackContainer from '../containers/TrackContainer';
-
 function PlaylistComponent(props){
     //On change add songs to the playlist
     const addTracks= ()=>{
@@ -24,5 +22,4 @@ function PlaylistComponent(props){
         
     );
 };
-
 export default PlaylistComponent;

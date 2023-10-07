@@ -5,7 +5,7 @@ function SearchSongsContainer(props){
         event.preventDefault();
    };
     return(
-        <SearchSongsComponent  onSubmit={onSubmit} input={props.input} setInput={props.setInput} setTrackList={props.setTrackList}/>
+        <SearchSongsComponent  onSubmit={onSubmit} input={props.input} setInput={props.setInput} setTrackList={props.setTrackList}  accessToken={props.accessToken}/>
     )
 }
 export default SearchSongsContainer;
