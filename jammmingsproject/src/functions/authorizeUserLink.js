@@ -1,6 +1,6 @@
 import generateRandomString from "./generateRandomString";
  function authorizeUserLink(){
-    const clientId="b8986874fd7048d89e5e148053643fcd";
+    const clientId="YOUR_CLIENT_ID";
     const scope = "playlist-modify-private playlist-modify-public user-read-private user-read-email";
     const stateString = generateRandomString(16);
     const redirect_uri="http://localhost:3000/callback";
