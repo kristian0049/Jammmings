@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import SearchResultsComponent from '../components/SearchResultsComponent';
 import TracklistContainer from './TracklistContainer';
 function SearchResultsContainer(props){
