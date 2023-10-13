@@ -22,9 +22,7 @@ function App() {
       setUserId(response.id);
      })
     }
-    
-
-  },[])
+  },[accessToken])
   return (
     <div id="main">  
     <button onClick={authorizeUserLink}>Sign In</button>

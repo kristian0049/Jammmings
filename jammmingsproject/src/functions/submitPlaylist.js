@@ -34,7 +34,7 @@ async function submitPlaylist(songs,playListName,accessToken,userId){
            })
        };
        const addSongs = await fetch(urlToPlaylist,playlistParameters)
-
+       console.log(addSongs);
     }else{
         throw new Error ("No songs added to the Playlist");
     }
